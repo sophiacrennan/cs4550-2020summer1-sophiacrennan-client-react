@@ -2,24 +2,21 @@ import React from "react";
 import ModuleListComponent from "./ModuleListComponent"
 import LessonTabs from "./LessonTabsComponent";
 import {Link} from "react-router-dom";
+import TopicPillsContainer from "./TopicPillsContainer";
+import WidgetListContainer from "./WidgetListContainer";
 
 // stateless component (so not a container)
 const CourseEditorComponent = () => {
     return (
         <div>
-            <h2>Course Editor</h2>
-            <Link to='../courses'>
-                Back
-            </Link>
+            <LessonTabs/>
             <div className="row">
-                <h2>Course Editor</h2>
                 <div className="col-4">
-            <ModuleListComponent/>
+                    <ModuleListComponent/>
                 </div>
                 <div className="col-8">
-                    <LessonTabs/>
-                    <h3>Topic Pills</h3>
-                    <h3>Widget List</h3>
+                    <TopicPillsContainer/>
+                    <WidgetListContainer/>
                 </div>
             </div>
         </div>

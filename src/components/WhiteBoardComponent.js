@@ -10,7 +10,7 @@ class WhiteBoardComponent extends React.Component {
         return(
             <div>
                 <BrowserRouter>
-                    <h1>WhiteBoard</h1>
+                    {/*<h1>WhiteBoard</h1>*/}
 
                     <Route path='/login'
                            exact={true}
