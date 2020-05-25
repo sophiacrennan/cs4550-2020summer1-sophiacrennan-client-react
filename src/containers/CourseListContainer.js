@@ -2,6 +2,8 @@ import React from "react";
 import CourseTableComponent from "../components/CourseTableComponent";
 import CourseGridComponent from "../components/CourseGridComponent";
 import CourseService from "../services/CourseService";
+import CourseListNavBarComponent from "../components/CourseListNavBarComponent";
+
 export default class CourseListContainer extends React.Component{
     state = {
         layout: this.props.match.params.layout,
@@ -44,35 +46,12 @@ export default class CourseListContainer extends React.Component{
                 )
             })))
 
-    addCourse = (title) =>
-       CourseService.createCourse( {
-            title : title,
-                owner: 'me',
-                modified: (new Date()).toDateString()
-        })
-           .then(theActualNewCourse =>
-               this.setState( (prevState) => {
-                       return {
-                           courses: [...prevState.courses, theActualNewCourse]
-                       }
-                   }
-               ))
-
     render() {
         return(
-            <div>
-                <h2>Course List {this.state.courses.length}</h2>
-                <input
-                    onChange={(event) => this.setState(
-                        {
-                            newCourseTitle: event.target.value
-                        }
-                    )}
-                    value={this.state.newCourseTitle}
-                       placeholder="Course Title"/>
-                <button onClick={() => this.addCourse(this.state.newCourseTitle)}>
-                    Add Course
-                </button>
+            <div class="container">
+
+                <CourseListNavBarComponent courses={this.state.courses}/>
+
                 {
                     this.state.layout === 'table' &&
                     <div>

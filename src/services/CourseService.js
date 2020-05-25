@@ -24,11 +24,14 @@ const deleteCourse = (courseId) =>
     })
         .then(response => response.json())
 
-const findCourseById = (courseId) => {}
-
 const findAllCourses = () =>
     fetch('https://wbdv-generic-server.herokuapp.com/api/001800938/courses')
         .then(response => response.json())
+
+const findCourseById = (courseId) => {
+    fetch('https://wbdv-generic-server.herokuapp.com/api/001800938/courses/' + courseId)
+        .then(response => response.json())
+}
 
 export default {
     createCourse,
