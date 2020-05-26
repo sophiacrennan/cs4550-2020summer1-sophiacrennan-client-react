@@ -7,13 +7,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default class CourseTableComponent extends React.Component {
     render() {
         return (
-            <div>
+            <div className="table-responsive">
                 <table className="table table-hover table-light">
                     <thead>
                     <tr className="table-secondary">
                         <th className="wbdv-header wbdv-title">Title</th>
-                        <th className="wbdv-header wbdv-owner">Owned By</th>
-                        <th className="wbdv-header wbdv-last-modified">Last Modified</th>
+                        <th className="wbdv-header wbdv-owner d-none d-md-table-cell">Owned By</th>
+                        <th className="wbdv-header wbdv-last-modified d-none d-lg-table-cell">Last Modified</th>
                         <th>
                             <button className="btn wbdv-button wbdv-grid-layout wbdv-list-layout float-right">
                                 <FontAwesomeIcon icon={faTh}></FontAwesomeIcon>
