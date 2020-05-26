@@ -7,12 +7,7 @@ import CourseListNavBarComponent from "../components/CourseListNavBarComponent";
 export default class CourseListContainer extends React.Component{
     state = {
         layout: this.props.match.params.layout,
-        courses: [
-            // {_id:'123', title: 'cs4550', owner: "me", modified: '3/31/2020'},
-            // {_id:'133', title: 'cs3500',owner: "myself", modified: '3/24/2020'},
-            // {_id:'113', title: 'cs4670', owner: "I", modified: '2/17/2020'},
-            // {_id:'183', title: 'cs4910', owner: "you", modified: '1/25/2020'},
-        ],
+        courses: [],
         newCourseTitle: "New Title"
     }
 
@@ -55,10 +50,8 @@ export default class CourseListContainer extends React.Component{
                 {
                     this.state.layout === 'table' &&
                     <div>
-                        <button onClick={() => this.setLayout('grid')}>
-                            Grid
-                        </button>
                         <CourseTableComponent
+                            setLayout={this.setLayout}
                             deleteCourse ={this.deleteCourse}
                             courses={this.state.courses}/>
                     </div>
@@ -66,10 +59,10 @@ export default class CourseListContainer extends React.Component{
                 {
                     this.state.layout === 'grid' &&
                         <div>
-                            <button onClick={() => this.setLayout('table')}>
-                                Table
-                            </button>
-                            <CourseGridComponent courses={this.state.courses}/>
+                            <CourseGridComponent
+                                setLayout={this.setLayout}
+                                deleteCourse ={this.deleteCourse}
+                                courses={this.state.courses}/>
                         </div>
                 }
 
