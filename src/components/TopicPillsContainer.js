@@ -9,7 +9,7 @@ const TopicPillsContainer = () =>
                 <a className="nav-link btn btn-pill" href="#">Topic 1</a>
             </li>
             <li className="nav-item wbdv-topic-pill">
-                <a className="nav-link btn active btn-pill" href="#">Topic 2</a>
+                <a className="nav-link btn btn-pill" href="#">Topic 2</a>
             </li>
             <li className="nav-item wbdv-topic-pill">
                 <a className="nav-link btn btn-pill" href="#">Topic 3</a>

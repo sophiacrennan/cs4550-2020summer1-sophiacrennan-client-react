@@ -5,9 +5,8 @@ import {Link} from "react-router-dom";
 import TopicPillsContainer from "./TopicPillsContainer";
 import WidgetListContainer from "./WidgetListContainer";
 
-// stateless component (so not a container)
-const CourseEditorComponent = () => {
-    return (
+// stateless component (so not a container...yet)
+const CourseEditorComponent = () =>
         <div>
             <LessonTabs/>
             <div className="row">
@@ -20,7 +19,5 @@ const CourseEditorComponent = () => {
                 </div>
             </div>
         </div>
-    )
-}
 
 export default CourseEditorComponent

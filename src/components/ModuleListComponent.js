@@ -2,8 +2,6 @@ import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlus, faTimes, faTrash} from "@fortawesome/free-solid-svg-icons";
 
-// maybe container...
-// stateless component right now
 const ModuleList = () =>
     <div className="module-list">
             <div className="list-group wbdv-module-list">

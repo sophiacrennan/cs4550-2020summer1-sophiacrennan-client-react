@@ -2,7 +2,7 @@ import React from "react";
 
 const WidgetListContainer = () =>
     <div class="heading-widget">
-        <ul>
+        <div>
             <h2>Heading widget</h2>
             <input
                 class="form-control"
@@ -10,24 +10,21 @@ const WidgetListContainer = () =>
                 type="text"
                 placeholder="Heading text"
             />
-            {/*</br>*/}
                 <select class="form-control wbdv-field wbdv-dob"
                         id="heading-type">
                     <option slected value="Heading-1">Heading 1</option>
                     <option value="Heading-2">Heading 2</option>
                     <option value="Heading-3">Heading 3</option>
                 </select>
-                {/*</br>*/}
-                    <input
+                <input
                         class="form-control"
                         id="widget-name"
                         type="text"
                         placeholder="Widget name"
                     />
-                    {/*</br>*/}
                         <h3>Preview</h3>
                         <h1>Heading text</h1>
-        </ul>
+        </div>
     </div>
 
 export default WidgetListContainer

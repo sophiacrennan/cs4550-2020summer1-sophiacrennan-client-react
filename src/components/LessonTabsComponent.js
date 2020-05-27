@@ -4,8 +4,7 @@ import {faUndo, faPlus} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {Link} from "react-router-dom";
 
-const LessonTabs = () => {
-        return (
+const LessonTabs = () =>
             <div>
                 <nav className="navbar navbar-expand-sm navbar-dark justify-content-between fixed-top nav-bg">
                     <div className="navbar-nav col-4">
@@ -45,7 +44,5 @@ const LessonTabs = () => {
                     </div>
                 </nav>
             </div>
-        )
-}
 
 export default LessonTabs
