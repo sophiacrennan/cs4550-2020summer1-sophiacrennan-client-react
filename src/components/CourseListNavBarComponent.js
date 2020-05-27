@@ -29,7 +29,7 @@ export default class CourseListNavBarComponent extends React.Component {
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a className="navbar-brand" href="#">WhiteBoard</a>
+                            <a className="navbar-brand" href="#">Course Manager</a>
                         </li>
                     </ul>
                 </div>
@@ -41,7 +41,7 @@ export default class CourseListNavBarComponent extends React.Component {
                                        newCourseTitle: event.target.value
                                    }
                                )}
-                               className="wbdv-field wbdv-new-course nav-item form-control"
+                               className="wbdv-field wbdv-new-course form-control"
                                placeholder="New Course Title"
                                aria-label="NewCourse"
                                aria-describedby="basic-addon1"/>
