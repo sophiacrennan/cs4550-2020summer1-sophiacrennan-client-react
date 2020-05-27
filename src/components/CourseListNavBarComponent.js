@@ -21,19 +21,19 @@ export default class CourseListNavBarComponent extends React.Component {
 
     render() {
         return (
-            <nav className="navbar fixed-top navbar-dark nav-bg">
-                <div className="d-inline p-2">
-                    <button className="navbar-toggler btn wbdv-hamburger" type="button" data-toggle="collapse"
-                            data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <a className="navbar-brand nav-item">
-                        <label className="wbdv-label wbdv-course-manager">Course Manager</label>
-                    </a>
+            <nav className="navbar fixed-top navbar-expand-lg navbar-dark nav-bg">
+                <button className="navbar-toggler" type="button"
+                        data-toggle="collapse" data-target="#navbarNavDropdown">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <a className="navbar-brand" href="#">WhiteBoard</a>
+                        </li>
+                    </ul>
                 </div>
-                <div className="d-inline p-2">
+                <div>
                     <form className="form-inline">
                         <input type="text"
                                onChange={(event) => this.setState(
