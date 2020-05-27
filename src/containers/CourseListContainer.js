@@ -27,9 +27,6 @@ export default class CourseListContainer extends React.Component{
     }
 
     setLayout = (layout) => {
-        // this.setState({
-        //     layout: layout
-        // })
         this.props.history.push(`/${layout}/courses`)
     }
 
@@ -43,12 +40,13 @@ export default class CourseListContainer extends React.Component{
 
     render() {
         return(
+
             <div class="container">
 
                 <CourseListNavBarComponent courses={this.state.courses}/>
 
                 {
-                    this.state.layout === 'table' &&
+                   this.state.layout !== 'grid' &&
                     <div>
                         <CourseTableComponent
                             setLayout={this.setLayout}
