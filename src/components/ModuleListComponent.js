@@ -54,10 +54,10 @@ const ModuleList = () =>
                                     <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
                             </button>
                     </button>
+                    <button className="btn wbdv-module-item-add-btn float-right">
+                            <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+                    </button>
             </div>
-            <button className="btn wbdv-module-item-add-btn float-right">
-                    <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
-            </button>
     </div>
 
 

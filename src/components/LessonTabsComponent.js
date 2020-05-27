@@ -7,16 +7,17 @@ import {Link} from "react-router-dom";
 const LessonTabs = () =>
             <div>
                 <nav className="navbar navbar-expand-sm navbar-dark justify-content-between fixed-top nav-bg">
-                    <div className="navbar-nav col-4">
+                    <div className="navbar-nav float-left">
                         <div className="float-left">
                             <Link to='../courses'>
-                                <FontAwesomeIcon className="link" icon={faUndo}></FontAwesomeIcon>
+                                <FontAwesomeIcon className="nav-item back-button" icon={faUndo}></FontAwesomeIcon>
                             </Link>
+                            <span>         </span>
                             <a className="navbar-brand wbdv-course-title" href="#">CS4550 - WebDev</a>
                         </div>
                     </div>
 
-                    <div className="col-8">
+                    <div className="float-right">
                         <button className="navbar-toggler float-right" type="button" data-toggle="collapse"
                                 data-target="#navbarNav"
                                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
