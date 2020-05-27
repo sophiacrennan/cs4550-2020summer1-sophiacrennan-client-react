@@ -5,16 +5,25 @@ const HomeComponent = () =>
     <div>
         <h1>Home</h1>
         <div className="list-group">
-            <Link className="list-group-item" to='/editor'>
-                Course Editor
+
+            <Link className="list-group-item" to='/login'>
+                Login
+            </Link>
+
+            <Link className="list-group-item" to='/signup'>
+                Sign Up
+            </Link>
+
+            <Link className="list-group-item" to='/profile'>
+                Profile
             </Link>
 
             <Link className="list-group-item" to='/table/courses'>
                 Course List
             </Link>
 
-            <Link className="list-group-item" to='/login'>
-                Login
+            <Link className="list-group-item" to='/editor'>
+                Course Editor
             </Link>
         </div>
     </div>

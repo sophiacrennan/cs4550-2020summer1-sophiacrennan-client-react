@@ -4,19 +4,26 @@ import CourseEditorComponent from "./CourseEditorComponent";
 import {BrowserRouter, Route} from "react-router-dom";
 import HomeComponent from "./HomeComponent";
 import LoginComponent from "./LoginComponent";
+import ProfileComponent from "./ProfileComponent";
+import SignUpComponent from "./SignUpComponent";
 
 class WhiteBoardComponent extends React.Component {
     render() {
         return(
             <div>
                 <BrowserRouter>
-                    {/*<h1>WhiteBoard</h1>*/}
 
                     <Route path='/login'
                            exact={true}
                            component={LoginComponent}/>
 
-                           {/*TODO: port over registration,profile components*/}
+                    <Route path='/profile'
+                           exact={true}
+                           component={ProfileComponent}/>
+
+                    <Route path='/signup'
+                           exact={true}
+                           component={SignUpComponent}/>
 
                     <Route path='/'
                            exact={true}
@@ -29,6 +36,7 @@ class WhiteBoardComponent extends React.Component {
                     <Route path='/:layout/courses'
                            exact={true}
                            component={CourseListContainer}/>
+
                     <Route path='/editor'
                            exact={true}
                            component={CourseEditorComponent}/>

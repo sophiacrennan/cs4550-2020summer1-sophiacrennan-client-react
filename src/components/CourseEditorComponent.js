@@ -1,7 +1,7 @@
 import React from "react";
 import ModuleListComponent from "./ModuleListComponent"
 import LessonTabs from "./LessonTabsComponent";
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
 import TopicPillsContainer from "./TopicPillsContainer";
 import WidgetListContainer from "./WidgetListContainer";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faPlus, faTimes, faTrash} from "@fortawesome/free-solid-svg-icons";
+import {faPlus, faTimes} from "@fortawesome/free-solid-svg-icons";
 
 const ModuleList = () =>
     <div className="module-list">

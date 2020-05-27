@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import CourseService from "../services/CourseService";
-import {faTrash, faFileAlt, faEdit, faCheck, faImage} from "@fortawesome/free-solid-svg-icons";
+import {faTrash, faFileAlt, faEdit, faCheck} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class CourseCardComponent extends React.Component{
@@ -35,7 +35,7 @@ export default class CourseCardComponent extends React.Component{
             // <div className={this.state.editing ? 'table-primary' : ''}>
                 <div className="card wbdv-card">
                     <img className="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap"/>
-                        <div className="card-body">
+                        <div className="card-body d-flex flex-column">
                             <h5 className="card-title">
                                 {this.state.editing &&
                                 <input
@@ -55,7 +55,7 @@ export default class CourseCardComponent extends React.Component{
                             <p className="float-right">
                                 {
                                     this.state.editing &&
-                                    <button  className="btn btn-primary"
+                                    <button  className="btn btn-primary mt-auto"
                                              onClick={this.ok}>
                                         <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
                                     </button>
@@ -63,12 +63,12 @@ export default class CourseCardComponent extends React.Component{
                                 { !this.state.editing &&
                                 <span>
                         <button
-                            className="btn btn-primary"
+                            className="btn btn-primary mt-auto"
                             onClick={() => this.setEditing(true)}>
                             <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
                         </button>
                         <button
-                            className="btn btn-danger"
+                            className="btn btn-danger mt-auto"
                             onClick={() => this.props.deleteCourse(this.props.course)}>
                             <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
                         </button>
@@ -76,6 +76,7 @@ export default class CourseCardComponent extends React.Component{
                             </p>
                         </div>
                 </div>
+
          )
     }
 }

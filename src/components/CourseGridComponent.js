@@ -1,6 +1,5 @@
 import React from "react";
 import CourseCardComponent from "./CourseCardComponent";
-import CourseRowComponent from "./CourseRowComponent";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faList, faSortAlphaDown} from "@fortawesome/free-solid-svg-icons";
 
