@@ -50,8 +50,8 @@ export default class CourseRowComponent extends React.Component{
                             value={this.state.course.title}/>
                     }
                 </td>
-                <td>{this.state.course.owner}</td>
-                <td>{this.state.course.modified}</td>
+                <td className="d-none d-lg-table-cell">{this.state.course.owner}</td>
+                <td className="d-none d-lg-table-cell">{this.state.course.modified}</td>
                 <td className="float-right">
                     {
                         this.state.editing &&
