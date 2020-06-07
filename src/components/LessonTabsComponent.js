@@ -1,10 +1,28 @@
 import React from "react";
-// import {render} from "react-dom";
-import {faUndo, faPlus} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faUndo, faPlus, faTimes, faCheck, faPencilAlt} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Link} from "react-router-dom";
 
-const LessonTabs = () =>
+class LessonTabsComponent extends React.Component {
+
+    state = {
+        newLessonTitle: 'New Lesson',
+        editingLesson: {}
+    }
+
+    componentDidMount() {
+        this.props.findLessonsForModule(this.props.params.moduleId)
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.params.moduleId !== this.props.params.moduleId) {
+            this.props.findLessonsForModule(this.props.params.moduleId)
+        }
+    }
+
+    render() {
+        return (
+
             <div>
                 <nav className="navbar navbar-expand-sm navbar-dark justify-content-between fixed-top nav-bg">
                     <div className="navbar-nav float-left">
@@ -13,7 +31,7 @@ const LessonTabs = () =>
                                 <FontAwesomeIcon className="nav-item back-button" icon={faUndo}></FontAwesomeIcon>
                             </Link>
                             <span>         </span>
-                            <a className="navbar-brand wbdv-course-title" href="#">CS4550 - WebDev</a>
+                            <a className="navbar-brand wbdv-course-title" href="#">{this.props.params.courseId}</a>
                         </div>
                     </div>
 
@@ -25,25 +43,69 @@ const LessonTabs = () =>
                         </button>
                         <div className="collapse navbar-collapse float-right" id="navbarNavCourseEditor">
                             <ul className="navbar-nav mr-auto">
-                                <li className="nav-item"><a className="nav-link wbdv-lesson-tabs" href="#">Build</a>
+                                {
+                                    this.props.lessons.map(lesson =>
+                                        <li key={lesson._id}
+                                            className="nav-item">
+                                            {
+                                                this.state.editingLesson._id !== lesson._id &&
+                                                <span>
+                                                    <button className="btn nav-link wbdv-lesson-tabs">
+                                                     {lesson.title}
+                                                     <button onClick={() => this.setState({editingLesson: lesson})}
+                                                             className="btn nav-link wbdv-lesson-delete-btn float-right">
+                                                        <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
+                                                    </button>
+                                                </button>
+                                            </span>
+                                            }
+                                            {
+                                                this.state.editingLesson._id === lesson._id &&
+                                                <span>
+                                                     <input onChange={(e) => {
+                                                         const newTitle = e.target.value
+                                                         this.setState(prevState => ({
+                                                             editingLesson: {
+                                                                 ...prevState.editingLesson,
+                                                                 title: newTitle
+                                                             }
+                                                         }))}}
+                                                            value={this.state.editingLesson.title}/>
+
+                                                     <button className="btn nav-link wbdv-lesson-item-save-btn float-right"
+                                                             onClick={() => {
+                                                                 this.props.updateLesson(this.state.editingLesson._id, this.state.editingLesson)
+                                                                 this.setState({editingLesson: {}})
+                                                             }}>
+                                                         <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
+                                                     </button>
+
+                                                    <button  onClick={() => this.props.deleteLesson(lesson._id)}
+                                                             className="btn nav-link wbdv-lesson-item-delete-btn float-right">
+                                                        <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
+                                                    </button>
+                                            </span>
+                                            }
+
+                                        </li>
+                                    )
+                                }
+                                <li className="nav-item">
+                                    <button className="btn nav-link wbdv-lesson-add-btn"
+                                            onClick={() => this.props.createLesson(
+                                                this.props.params.moduleId, {
+                                                    title: this.state.newLessonTitle
+                                                })}>
+                                        <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+                                    </button>
                                 </li>
-                                <li className="nav-item active"><a className="nav-link wbdv-lesson-tabs"
-                                                                   href="#">Pages</a>
-                                </li>
-                                <li className="nav-item"><a className="nav-link wbdv-lesson-tabs" href="#">Theme</a>
-                                </li>
-                                <li className="nav-item"><a className="nav-link wbdv-lesson-tabs" href="#">Store</a>
-                                </li>
-                                <li className="nav-item"><a className="nav-link wbdv-lesson-tabs" href="#">Apps</a></li>
-                                <li className="nav-item"><a className="nav-link wbdv-lesson-tabs" href="#">Settings</a>
-                                </li>
-                                <li className="nav-item"><a className="nav-link wbdv-lesson-add-btn" href="#">
-                                    <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
-                                </a></li>
                             </ul>
                         </div>
                     </div>
                 </nav>
             </div>
+        )
+    }
+}
 
-export default LessonTabs
+export default LessonTabsComponent
