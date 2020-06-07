@@ -1,6 +1,6 @@
 import React from "react";
 
-const WidgetListContainer = () =>
+const WidgetListComponent = () =>
     <div class="heading-widget">
         <div>
             <h2>Heading widget</h2>
@@ -27,5 +27,5 @@ const WidgetListContainer = () =>
         </div>
     </div>
 
-export default WidgetListContainer
+export default WidgetListComponent
 
