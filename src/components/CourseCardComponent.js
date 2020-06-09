@@ -24,16 +24,15 @@ export default class CourseCardComponent extends React.Component{
             course: {
                 ...prevState.course,
                 title: newTitle,
-                // owner: prevState.course.owner,
-                // modified: prevState.course.modified
             }
         }))
 
 
     render() {
          return (
-            // <div className={this.state.editing ? 'table-primary' : ''}>
-                <div className="card wbdv-card">
+             <div className="col-xs-12 col-sm-6 col-m-4 col-lg-3 col-xl-2">
+            <div className={this.state.editing ? 'card wbdv-card border-primary'
+                : 'card wbdv-card'}>
                     <img className="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap"/>
                         <div className="card-body d-flex flex-column">
                             <h5 className="card-title">
@@ -76,6 +75,7 @@ export default class CourseCardComponent extends React.Component{
                             </p>
                         </div>
                 </div>
+             </div>
 
          )
     }

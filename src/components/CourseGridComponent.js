@@ -20,7 +20,7 @@ export default class CourseGridComponent extends React.Component {
                         </button>
                     </div>
                 </div>
-                <div className="card-deck">
+                <div className="row">
                     {
                         this.props.courses.map(course =>
                             <CourseCardComponent
