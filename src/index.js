@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import moduleReducer from './reducers/ModuleReducer';
+import ModuleReducer from './reducers/ModuleReducer';
 import LessonReducer from "./reducers/LessonReducer";
 import TopicReducer from "./reducers/TopicReducer";
 import {combineReducers, createStore} from "redux";
@@ -11,7 +11,7 @@ import {Provider} from "react-redux";
 import $ from 'jquery';
 
 const reducers = combineReducers({
-    moduleReducer, LessonReducer, TopicReducer
+    ModuleReducer, LessonReducer, TopicReducer
 })
 const store = createStore(reducers)
 
