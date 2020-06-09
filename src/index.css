@@ -28,12 +28,12 @@ code {
 }
 
 a:hover {
-  color: mediumpurple;
+  color: rgb(112, 19, 246);
 }
 
-a .link:hover {
-  color: mediumpurple;
-}
+/*a .link:hover {*/
+/*  color: mediumpurple;*/
+/*}*/
 
 .active {
   background-color: rgb(214, 192, 246) !important;
@@ -52,6 +52,16 @@ a .link{
   color: black;
 }
 
+.link{
+  text-decoration: none !important;
+  color: white;
+}
+
+.mod-link{
+  text-decoration: none !important;
+  color: black;
+}
+
 
 .list-group{
   border: 0.5rem outset rgb(221, 197, 255);
@@ -59,9 +69,9 @@ a .link{
   font: bold 1rem sans-serif;
 }
 
-.nav-item a{
-  margin: 10px;
-}
+/*.nav-item a{*/
+/*  margin: 10px;*/
+/*}*/
 
 div.heading-widget {
   border: 0.5rem outset rgb(221, 197, 255);
@@ -91,11 +101,19 @@ button:hover {
 .btn-pill {
   background-color: #c6c8ca;
   color: white;
+  margin: 10px;
 }
 
 a:hover {
   border-color: mediumpurple;
 }
+
+/*tr .highlightable:focus, .highlightable:active {*/
+/*  background-color: rgb(221, 197, 255);*/
+/*  outline: none;*/
+/*  box-shadow: none;*/
+/*  border-color: mediumpurple;*/
+/*}*/
 
 .wbdv-course-title {
   font-weight: bold;
@@ -103,6 +121,10 @@ a:hover {
 
 input .wbdv-new-course {
   color: black;
+}
+
+.wbdv-card {
+  margin-bottom: 5px;
 }
 
 

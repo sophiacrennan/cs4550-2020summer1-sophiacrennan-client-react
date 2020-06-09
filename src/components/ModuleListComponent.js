@@ -7,7 +7,8 @@ import {Link} from "react-router-dom";
 class ModuleListComponent extends React.Component {
     state = {
         newModuleTitle: 'New Module',
-        editingModule: {}
+        editingModule: {},
+        selectedModule: {}
     }
 
     componentDidMount() {
@@ -19,28 +20,39 @@ class ModuleListComponent extends React.Component {
             <div className="module-list">
                 <div className="list-group wbdv-module-list">
                         {
+
                             this.props.modules.map(module =>
-                                <button type="button"
-                                        className="list-group-item wbdv-module-item list-group-item-action"
-                                        key={module._id}>
+                                <div>
                                     {
                                         this.state.editingModule._id !== module._id &&
                                             <span>
+                                                 <button type="button"
+                                                         className={this.state.selectedModule._id === module._id ?
+                                                             "list-group-item wbdv-module-item list-group-item-action active" : "list-group-item wbdv-module-item list-group-item-action"}
+                                                         key={module._id}>
                                                     <span className="wbdv-module-item-title">
-                                                        <Link to={`/editor/${this.props.params.courseId}/modules/${module._id}`}>
+                                                        <Link to={`/editor/${this.props.params.courseId}/modules/${module._id}`}
+                                                              className="mod-link"
+                                                              onClick={() => this.setState({selectedModule:module})}>
                                                             {module.title}
                                                         </Link>
                                                     </span>
-                                                    <button onClick={() => this.setState({editingModule: module})}
+                                                    <button onClick={() => this.setState({editingModule: module, selectedModule:module})}
                                                             className="btn wbdv-module-item-edit-btn float-right">
                                                         <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
                                                     </button>
+                                                 </button>
                                             </span>
                                     }
                                     {
                                         this.state.editingModule._id === module._id &&
                                             <span>
-                                                     <input onChange={(e) => {
+                                                 <button type="button"
+                                                         className={this.state.selectedModule._id === module._id ?
+                                                             "list-group-item wbdv-module-item list-group-item-action active" : "list-group-item wbdv-module-item list-group-item-action"}
+                                                         key={module._id}>
+                                                     <input className="form-control"
+                                                            onChange={(e) => {
                                                          const newTitle = e.target.value
                                                          this.setState(prevState => ({
                                                          editingModule: {
@@ -62,17 +74,12 @@ class ModuleListComponent extends React.Component {
                                                              className="btn wbdv-module-item-delete-btn float-right">
                                                         <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
                                                     </button>
+                                                 </button>
                                             </span>
                                     }
-                                </button>)
+                                </div>
+                               )
                         }
-                     {/*<input onChange={(event) =>*/}
-                     {/*    this.setState({*/}
-                     {/*        newModuleTitle: event.target.value*/}
-                     {/*    })}*/}
-                     {/*       // value={this.state.newModuleTitle}*/}
-                     {/*    placeholder="New Module"*/}
-                     {/*/>*/}
 
                     <button className="btn wbdv-module-item-add-btn float-right"
                             onClick={() => this.props.createModule(

@@ -2,12 +2,14 @@ import React from "react";
 import {faUndo, faPlus, faTimes, faCheck, faPencilAlt} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Link} from "react-router-dom";
+import CourseService from "../services/CourseService";
 
 class LessonTabsComponent extends React.Component {
 
     state = {
         newLessonTitle: 'New Lesson',
-        editingLesson: {}
+        editingLesson: {},
+        selectedLesson: {},
     }
 
     componentDidMount() {
@@ -20,6 +22,7 @@ class LessonTabsComponent extends React.Component {
         }
     }
 
+
     render() {
         return (
 
@@ -27,11 +30,13 @@ class LessonTabsComponent extends React.Component {
                 <nav className="navbar navbar-expand-sm navbar-dark justify-content-between fixed-top nav-bg">
                     <div className="navbar-nav float-left">
                         <div className="float-left">
-                            <Link to='../courses'>
+                            <Link to='/courses'>
                                 <FontAwesomeIcon className="nav-item back-button" icon={faUndo}></FontAwesomeIcon>
                             </Link>
                             <span>         </span>
-                            <a className="navbar-brand wbdv-course-title" href="#">{this.props.params.courseId}</a>
+                            <a className="navbar-brand wbdv-course-title" href="#">
+                                {this.props.params.courseId}
+                            </a>
                         </div>
                     </div>
 
@@ -50,8 +55,13 @@ class LessonTabsComponent extends React.Component {
                                             {
                                                 this.state.editingLesson._id !== lesson._id &&
                                                 <span>
-                                                    <button className="btn nav-link wbdv-lesson-tabs">
-                                                     {lesson.title}
+                                                    <button className={this.state.selectedLesson._id === lesson._id ?
+                                                        "btn nav-link wbdv-lesson-tabs active" : "btn nav-link wbdv-lesson-tabs"}>
+                                                         <Link to={`/editor/${this.props.params.courseId}/${this.props.params.moduleId}/lessons/${lesson._id}`}
+                                                               className="link"
+                                                               onClick={() => this.setState({selectedLesson:lesson})}>
+                                                            {lesson.title}
+                                                         </Link>
                                                      <button onClick={() => this.setState({editingLesson: lesson})}
                                                              className="btn nav-link wbdv-lesson-delete-btn float-right">
                                                         <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
@@ -62,7 +72,9 @@ class LessonTabsComponent extends React.Component {
                                             {
                                                 this.state.editingLesson._id === lesson._id &&
                                                 <span>
-                                                     <input onChange={(e) => {
+                                                    <button className="btn nav-link wbdv-lesson-tabs active">
+                                                     <input className="form-control"
+                                                            onChange={(e) => {
                                                          const newTitle = e.target.value
                                                          this.setState(prevState => ({
                                                              editingLesson: {
@@ -84,9 +96,9 @@ class LessonTabsComponent extends React.Component {
                                                              className="btn nav-link wbdv-lesson-item-delete-btn float-right">
                                                         <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
                                                     </button>
+                                                    </button>
                                             </span>
                                             }
-
                                         </li>
                                     )
                                 }
