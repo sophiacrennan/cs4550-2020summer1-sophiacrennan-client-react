@@ -8,7 +8,8 @@ import LessonReducer from "./reducers/LessonReducer";
 import TopicReducer from "./reducers/TopicReducer";
 import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
-import $ from 'jquery';
+import $ from'jquery';
+import Popper from'popper.js';
 
 const reducers = combineReducers({
     ModuleReducer, LessonReducer, TopicReducer

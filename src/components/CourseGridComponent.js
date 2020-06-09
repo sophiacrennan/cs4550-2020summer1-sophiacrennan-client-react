@@ -5,7 +5,7 @@ import {faList, faSortAlphaDown} from "@fortawesome/free-solid-svg-icons";
 
 export default class CourseGridComponent extends React.Component {
     render() {
-        return(
+        return (
             <div>
                 <div className="row">
                     <div className="col-6">Recent Documents</div>

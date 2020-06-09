@@ -1,7 +1,6 @@
 import LessonService from "../services/LessonService";
 import LessonTabsComponent from "../components/LessonTabsComponent"
 import {connect} from "react-redux";
-import ModuleService from "../services/ModuleService";
 
 const stateToPropertyMapper = (state) => ({
     lessons: state.LessonReducer.lessons
@@ -24,7 +23,7 @@ const dispatchToPropertyMapper = (dispatch) => ({
     },
     deleteLesson: (lessonId) => {
         LessonService.deleteLesson(lessonId)
-            .then(status =>  dispatch({
+            .then(status => dispatch({
                 type: "DELETE_LESSON",
                 lessonId: lessonId
             }))
@@ -39,7 +38,7 @@ const dispatchToPropertyMapper = (dispatch) => ({
 })
 
 const LessonTabContainer = connect
-(stateToPropertyMapper,dispatchToPropertyMapper)
+(stateToPropertyMapper, dispatchToPropertyMapper)
 (LessonTabsComponent)
 
 export default LessonTabContainer

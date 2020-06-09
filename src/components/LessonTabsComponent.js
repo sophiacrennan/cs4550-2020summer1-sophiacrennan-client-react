@@ -2,7 +2,6 @@ import React from "react";
 import {faUndo, faPlus, faTimes, faCheck, faPencilAlt} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Link} from "react-router-dom";
-import CourseService from "../services/CourseService";
 
 class LessonTabsComponent extends React.Component {
 
@@ -57,9 +56,10 @@ class LessonTabsComponent extends React.Component {
                                                 <span>
                                                     <button className={this.state.selectedLesson._id === lesson._id ?
                                                         "btn nav-link wbdv-lesson-tabs active" : "btn nav-link wbdv-lesson-tabs"}>
-                                                         <Link to={`/editor/${this.props.params.courseId}/${this.props.params.moduleId}/lessons/${lesson._id}`}
-                                                               className="link"
-                                                               onClick={() => this.setState({selectedLesson:lesson})}>
+                                                         <Link
+                                                             to={`/editor/${this.props.params.courseId}/${this.props.params.moduleId}/lessons/${lesson._id}`}
+                                                             className="link"
+                                                             onClick={() => this.setState({selectedLesson: lesson})}>
                                                             {lesson.title}
                                                          </Link>
                                                      <button onClick={() => this.setState({editingLesson: lesson})}
@@ -75,25 +75,27 @@ class LessonTabsComponent extends React.Component {
                                                     <button className="btn nav-link wbdv-lesson-tabs active">
                                                      <input className="form-control"
                                                             onChange={(e) => {
-                                                         const newTitle = e.target.value
-                                                         this.setState(prevState => ({
-                                                             editingLesson: {
-                                                                 ...prevState.editingLesson,
-                                                                 title: newTitle
-                                                             }
-                                                         }))}}
+                                                                const newTitle = e.target.value
+                                                                this.setState(prevState => ({
+                                                                    editingLesson: {
+                                                                        ...prevState.editingLesson,
+                                                                        title: newTitle
+                                                                    }
+                                                                }))
+                                                            }}
                                                             value={this.state.editingLesson.title}/>
 
-                                                     <button className="btn nav-link wbdv-lesson-item-save-btn float-right"
-                                                             onClick={() => {
-                                                                 this.props.updateLesson(this.state.editingLesson._id, this.state.editingLesson)
-                                                                 this.setState({editingLesson: {}})
-                                                             }}>
+                                                     <button
+                                                         className="btn nav-link wbdv-lesson-item-save-btn float-right"
+                                                         onClick={() => {
+                                                             this.props.updateLesson(this.state.editingLesson._id, this.state.editingLesson)
+                                                             this.setState({editingLesson: {}})
+                                                         }}>
                                                          <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
                                                      </button>
 
-                                                    <button  onClick={() => this.props.deleteLesson(lesson._id)}
-                                                             className="btn nav-link wbdv-lesson-item-delete-btn float-right">
+                                                    <button onClick={() => this.props.deleteLesson(lesson._id)}
+                                                            className="btn nav-link wbdv-lesson-item-delete-btn float-right">
                                                         <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
                                                     </button>
                                                     </button>

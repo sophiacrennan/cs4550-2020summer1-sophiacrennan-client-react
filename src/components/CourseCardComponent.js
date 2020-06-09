@@ -2,9 +2,9 @@ import React from "react";
 import {Link} from "react-router-dom";
 import CourseService from "../services/CourseService";
 import {faTrash, faFileAlt, faEdit, faCheck} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-export default class CourseCardComponent extends React.Component{
+export default class CourseCardComponent extends React.Component {
 
     state = {
         editing: false,
@@ -29,38 +29,38 @@ export default class CourseCardComponent extends React.Component{
 
 
     render() {
-         return (
-             <div className="col-xs-12 col-sm-6 col-m-4 col-lg-3 col-xl-2">
-            <div className={this.state.editing ? 'card wbdv-card border-primary'
-                : 'card wbdv-card'}>
+        return (
+            <div className="col-xs-12 col-sm-6 col-m-4 col-lg-3 col-xl-2">
+                <div className={this.state.editing ? 'card wbdv-card border-primary'
+                    : 'card wbdv-card'}>
                     <img className="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap"/>
-                        <div className="card-body d-flex flex-column">
-                            <h5 className="card-title">
-                                {this.state.editing &&
-                                <input
-                                    className="form-control"
-                                    onChange={(event) => this.updateCourseTitle(event.target.value)}
-                                    value={this.state.course.title}/>
-                                } {
-                                !this.state.editing &&
-                                <Link to={`/editor/${this.state.course._id}`}>
-                                    <span className="link"> {this.state.course.title} </span>
-                                </Link>
-                            } </h5>
-                            <p className="card-text"><small className="text-muted">
-                                <FontAwesomeIcon icon={faFileAlt}></FontAwesomeIcon>
-                                {this.state.course.modified}</small>
-                            </p>
-                            <p className="float-right">
-                                {
-                                    this.state.editing &&
-                                    <button  className="btn btn-primary mt-auto"
-                                             onClick={this.ok}>
-                                        <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
-                                    </button>
-                                }
-                                { !this.state.editing &&
-                                <span>
+                    <div className="card-body d-flex flex-column">
+                        <h5 className="card-title">
+                            {this.state.editing &&
+                            <input
+                                className="form-control"
+                                onChange={(event) => this.updateCourseTitle(event.target.value)}
+                                value={this.state.course.title}/>
+                            } {
+                            !this.state.editing &&
+                            <Link to={`/editor/${this.state.course._id}`}>
+                                <span className="link"> {this.state.course.title} </span>
+                            </Link>
+                        } </h5>
+                        <p className="card-text"><small className="text-muted">
+                            <FontAwesomeIcon icon={faFileAlt}></FontAwesomeIcon>
+                            {this.state.course.modified}</small>
+                        </p>
+                        <p className="float-right">
+                            {
+                                this.state.editing &&
+                                <button className="btn btn-primary mt-auto"
+                                        onClick={this.ok}>
+                                    <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
+                                </button>
+                            }
+                            {!this.state.editing &&
+                            <span>
                         <button
                             className="btn btn-primary mt-auto"
                             onClick={() => this.setEditing(true)}>
@@ -71,12 +71,12 @@ export default class CourseCardComponent extends React.Component{
                             onClick={() => this.props.deleteCourse(this.props.course)}>
                             <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
                         </button>
-                    </span> }
-                            </p>
-                        </div>
+                    </span>}
+                        </p>
+                    </div>
                 </div>
-             </div>
+            </div>
 
-         )
+        )
     }
 }

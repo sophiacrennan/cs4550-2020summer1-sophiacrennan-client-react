@@ -24,7 +24,7 @@ const dispatchToPropertyMapper = (dispatch) => ({
     },
     deleteTopic: (topicId) => {
         TopicService.deleteTopic(topicId)
-            .then(status =>  dispatch({
+            .then(status => dispatch({
                 type: "DELETE_TOPIC",
                 topicId: topicId
             }))
@@ -39,7 +39,7 @@ const dispatchToPropertyMapper = (dispatch) => ({
 })
 
 const TopicPillContainer = connect
-(stateToPropertyMapper,dispatchToPropertyMapper)
+(stateToPropertyMapper, dispatchToPropertyMapper)
 (TopicPillsComponent)
 
 export default TopicPillContainer

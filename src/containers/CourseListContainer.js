@@ -4,7 +4,7 @@ import CourseGridComponent from "../components/CourseGridComponent";
 import CourseService from "../services/CourseService";
 import CourseListNavBarComponent from "../components/CourseListNavBarComponent";
 
-export default class CourseListContainer extends React.Component{
+export default class CourseListContainer extends React.Component {
     state = {
         layout: this.props.match.params.layout,
         courses: [],
@@ -19,7 +19,7 @@ export default class CourseListContainer extends React.Component{
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(prevProps.match.params.layout !== this.props.match.params.layout) {
+        if (prevProps.match.params.layout !== this.props.match.params.layout) {
             this.setState({
                 layout: this.props.match.params.layout
             })
@@ -39,29 +39,29 @@ export default class CourseListContainer extends React.Component{
             })))
 
     render() {
-        return(
+        return (
 
             <div class="container">
 
                 <CourseListNavBarComponent courses={this.state.courses}/>
 
                 {
-                   this.state.layout !== 'grid' &&
+                    this.state.layout !== 'grid' &&
                     <div>
                         <CourseTableComponent
                             setLayout={this.setLayout}
-                            deleteCourse ={this.deleteCourse}
+                            deleteCourse={this.deleteCourse}
                             courses={this.state.courses}/>
                     </div>
                 }
                 {
                     this.state.layout === 'grid' &&
-                        <div>
-                            <CourseGridComponent
-                                setLayout={this.setLayout}
-                                deleteCourse ={this.deleteCourse}
-                                courses={this.state.courses}/>
-                        </div>
+                    <div>
+                        <CourseGridComponent
+                            setLayout={this.setLayout}
+                            deleteCourse={this.deleteCourse}
+                            courses={this.state.courses}/>
+                    </div>
                 }
 
             </div>

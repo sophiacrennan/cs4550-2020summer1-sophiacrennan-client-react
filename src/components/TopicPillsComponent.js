@@ -37,7 +37,7 @@ class TopicPillsComponent extends React.Component {
                                             <Link
                                                 to={`/editor/${this.props.params.courseId}/${this.props.params.moduleId}/${this.props.params.lessonId}/topics/${topic._id}`}
                                                 className="link"
-                                            onClick={() => this.setState({selectedTopic:topic})}>
+                                                onClick={() => this.setState({selectedTopic: topic})}>
                                                     {topic.title}
                                             </Link>
                                              <button onClick={() => this.setState({editingTopic: topic})}
@@ -52,26 +52,28 @@ class TopicPillsComponent extends React.Component {
                                     <span>
                                         <button className="nav-link btn btn-pill active">
                                                      <input className="form-control"
-                                                         onChange={(e) => {
-                                                         const newTitle = e.target.value
-                                                         this.setState(prevState => ({
-                                                             editingTopic: {
-                                                                 ...prevState.editingTopic,
-                                                                 title: newTitle
-                                                             }
-                                                         }))}}
+                                                            onChange={(e) => {
+                                                                const newTitle = e.target.value
+                                                                this.setState(prevState => ({
+                                                                    editingTopic: {
+                                                                        ...prevState.editingTopic,
+                                                                        title: newTitle
+                                                                    }
+                                                                }))
+                                                            }}
                                                             value={this.state.editingTopic.title}/>
 
-                                                     <button className="btn btn-pill nav-link wbdv-topic-item-save-btn float-right"
-                                                             onClick={() => {
-                                                                 this.props.updateTopic(this.state.editingTopic._id, this.state.editingTopic)
-                                                                 this.setState({editingTopic: {}})
-                                                             }}>
+                                                     <button
+                                                         className="btn btn-pill nav-link wbdv-topic-item-save-btn float-right"
+                                                         onClick={() => {
+                                                             this.props.updateTopic(this.state.editingTopic._id, this.state.editingTopic)
+                                                             this.setState({editingTopic: {}})
+                                                         }}>
                                                          <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
                                                      </button>
 
-                                                    <button  onClick={() => this.props.deleteTopic(topic._id)}
-                                                             className="btn btn-pill nav-link wbdv-topic-item-delete-btn float-right">
+                                                    <button onClick={() => this.props.deleteTopic(topic._id)}
+                                                            className="btn btn-pill nav-link wbdv-topic-item-delete-btn float-right">
                                                         <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
                                                     </button>
                                         </button>

@@ -5,7 +5,7 @@ const initialState = {
     modules: []
 }
 
-const moduleReducer = (state=initialState, event) => {
+const moduleReducer = (state = initialState, event) => {
     switch (event.type) {
         case "UPDATE_MODULE":
             return {

@@ -1,8 +1,8 @@
 import React from "react";
 import CourseRowComponent from "./CourseRowComponent";
 import {faTh} from "@fortawesome/free-solid-svg-icons";
-import { faSortAlphaDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faSortAlphaDown} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 export default class CourseTableComponent extends React.Component {
     render() {

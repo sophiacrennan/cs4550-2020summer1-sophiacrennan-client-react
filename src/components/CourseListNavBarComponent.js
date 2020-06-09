@@ -1,18 +1,18 @@
 import React from "react";
 import CourseService from "../services/CourseService";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faPlus} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 export default class CourseListNavBarComponent extends React.Component {
 
     addCourse = (title) =>
-        CourseService.createCourse( {
-            title : title,
+        CourseService.createCourse({
+            title: title,
             owner: 'me',
             modified: (new Date()).toDateString()
         })
             .then(theActualNewCourse =>
-                this.setState( (prevState) => {
+                this.setState((prevState) => {
                         return {
                             courses: [...prevState.courses, theActualNewCourse]
                         }

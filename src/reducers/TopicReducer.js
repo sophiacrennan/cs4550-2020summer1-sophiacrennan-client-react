@@ -1,11 +1,10 @@
-
 const initialState = {
     newTopicTitle: 'Some Topic',
     topics: []
 }
 
-const TopicReducer = (state=initialState, action)=> {
-    switch(action.type) {
+const TopicReducer = (state = initialState, action) => {
+    switch (action.type) {
         case "DELETE_TOPIC":
             return {
                 ...state,

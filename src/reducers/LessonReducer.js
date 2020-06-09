@@ -1,11 +1,10 @@
-
 const initialState = {
     newLessonTitle: 'Some Module',
     lessons: []
 }
 
-const LessonReducer = (state=initialState, action)=> {
-    switch(action.type) {
+const LessonReducer = (state = initialState, action) => {
+    switch (action.type) {
         case "DELETE_LESSON":
             return {
                 ...state,

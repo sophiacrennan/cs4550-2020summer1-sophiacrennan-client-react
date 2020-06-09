@@ -9,7 +9,7 @@ import SignUpComponent from "./SignUpComponent";
 
 class WhiteBoardComponent extends React.Component {
     render() {
-        return(
+        return (
             <div>
                 <BrowserRouter>
 
@@ -41,8 +41,8 @@ class WhiteBoardComponent extends React.Component {
                            exact={true}
                            component={CourseEditorComponent}/>
 
-                   <Route path={['/editor/:courseId', '/editor/:courseId/modules/:moduleId',
-                       '/editor/:courseId/:moduleId/lessons/:lessonId', `/editor/:courseId/:moduleId/:lessonId/topics/:topicId`]}
+                    <Route path={['/editor/:courseId', '/editor/:courseId/modules/:moduleId',
+                        '/editor/:courseId/:moduleId/lessons/:lessonId', `/editor/:courseId/:moduleId/:lessonId/topics/:topicId`]}
                            exact={true}
                            component={CourseEditorComponent}/>
 

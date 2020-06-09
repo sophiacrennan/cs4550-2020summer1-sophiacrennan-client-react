@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProfileComponent =() =>
+const ProfileComponent = () =>
     <div>
         <h1>Profile</h1>
     </div>

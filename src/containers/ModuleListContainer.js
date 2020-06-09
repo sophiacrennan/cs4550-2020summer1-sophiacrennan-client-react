@@ -31,16 +31,16 @@ const dispatchToPropertyMapper = (dispatch) => {
                     type: "UPDATE_MODULE",
                     updatedModule: newModuleData
                 }))
-            },
+        },
 
-        deleteModule:(moduleId) => {
+        deleteModule: (moduleId) => {
             ModuleService.deleteModule(moduleId)
-                .then(status =>  dispatch({
+                .then(status => dispatch({
                     type: 'DELETE_MODULE',
                     moduleId: moduleId
                 }))
         },
-        createModule:(courseId, newModule) => {
+        createModule: (courseId, newModule) => {
             ModuleService.createModule(courseId, newModule)
                 .then(actualNewModule => dispatch({
                     type: "CREATE_MODULE",

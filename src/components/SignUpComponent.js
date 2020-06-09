@@ -1,6 +1,6 @@
 import React from "react";
 
-const SignUpComponent =() =>
+const SignUpComponent = () =>
     <div>
         <h1>Sign Up</h1>
     </div>
