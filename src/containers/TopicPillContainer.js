@@ -15,10 +15,10 @@ const dispatchToPropertyMapper = (dispatch) => ({
                 newTopic: actualTopic
             }))
     },
-    findTopicsForLesson: (lessonId) => {
+    findTopicForLesson: (lessonId) => {
         TopicService.findTopicForLesson(lessonId)
             .then(actualTopics => dispatch({
-                type: "FIND_TOPICS_FOR_LESSON",
+                type: "FIND_TOPIC_FOR_LESSON",
                 actualTopics
             }))
     },

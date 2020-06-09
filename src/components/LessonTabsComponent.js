@@ -13,12 +13,12 @@ class LessonTabsComponent extends React.Component {
     }
 
     componentDidMount() {
-        this.props.findLessonsForModule(this.props.params.moduleId)
+        this.props.findLessonForModule(this.props.params.moduleId)
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.params.moduleId !== this.props.params.moduleId) {
-            this.props.findLessonsForModule(this.props.params.moduleId)
+            this.props.findLessonForModule(this.props.params.moduleId)
         }
     }
 

@@ -12,12 +12,12 @@ class TopicPillsComponent extends React.Component {
     }
 
     componentDidMount() {
-        this.props.findTopicsForLesson(this.props.params.lessonId)
+        this.props.findTopicForLesson(this.props.params.lessonId)
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.params.lessonId !== this.props.params.lessonId) {
-            this.props.findTopicsForLesson(this.props.params.lessonId)
+            this.props.findTopicForLesson(this.props.params.lessonId)
         }
     }
 

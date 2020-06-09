@@ -1,5 +1,5 @@
-const createTopic = (lesssonId, newTopic) =>
-    fetch(`https://wbdv-generic-server.herokuapp.com/api/001800938/lessons/${lesssonId}/topics/`, {
+const createTopic = (lessonId, newTopic) =>
+    fetch(`https://wbdv-generic-server.herokuapp.com/api/001800938/lessons/${lessonId}/topics/`, {
         method: 'POST',
         body: JSON.stringify(newTopic),
         headers: {

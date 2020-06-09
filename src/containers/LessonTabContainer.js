@@ -15,7 +15,7 @@ const dispatchToPropertyMapper = (dispatch) => ({
                 newLesson: actualLesson
             }))
     },
-    findLessonsForModule: (moduleId) => {
+    findLessonForModule: (moduleId) => {
         LessonService.findLessonForModule(moduleId)
             .then(actualLessons => dispatch({
                 type: "FIND_LESSON_FOR_MODULE",
