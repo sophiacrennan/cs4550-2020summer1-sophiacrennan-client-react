@@ -1,5 +1,5 @@
 const createCourse = (course) =>
-     fetch('https://wbdv-generic-server.herokuapp.com/api/001800938/courses', {
+     fetch(`https://wbdv-generic-server.herokuapp.com/api/001800938/courses`, {
         method: 'POST',
         body: JSON.stringify(course),
         headers: {
@@ -29,7 +29,7 @@ const findAllCourses = () =>
         .then(response => response.json())
 
 const findCourseById = (courseId) => {
-    fetch('https://wbdv-generic-server.herokuapp.com/api/001800938/courses/' + courseId)
+    fetch(`https://wbdv-generic-server.herokuapp.com/api/001800938/courses/${courseId}`)
         .then(response => response.json())
 }
 

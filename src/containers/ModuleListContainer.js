@@ -4,8 +4,8 @@ import ModuleService from "../services/ModuleService";
 
 const stateToPropertyMapper = (state) => {
     return {
-        modules: state.moduleReducer.modules,
-        newModuleTitle: state.moduleReducer.newModuleTitle
+        modules: state.ModuleReducer.modules,
+        newModuleTitle: state.ModuleReducer.newModuleTitle
     }
 }
 
@@ -14,7 +14,7 @@ const dispatchToPropertyMapper = (dispatch) => {
         findModuleForCourse: (courseId) => {
             ModuleService.findModuleForCourse(courseId)
                 .then(modulesForTheCourse => dispatch({
-                    type: 'FIND_MODULES_FOR_COURSE',
+                    type: 'FIND_MODULE_FOR_COURSE',
                     modules: modulesForTheCourse
                 }))
         },
@@ -43,7 +43,7 @@ const dispatchToPropertyMapper = (dispatch) => {
         createModule:(courseId, newModule) => {
             ModuleService.createModule(courseId, newModule)
                 .then(actualNewModule => dispatch({
-                    type: "ADD_MODULE",
+                    type: "CREATE_MODULE",
                     newModule: actualNewModule
 
                 }))

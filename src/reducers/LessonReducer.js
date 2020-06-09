@@ -12,7 +12,7 @@ const LessonReducer = (state=initialState, action)=> {
                 lessons: state.lessons.filter(
                     lesson => lesson._id !== action.lessonId)
             }
-        case "FIND_LESSONS_FOR_MODULE":
+        case "FIND_LESSON_FOR_MODULE":
             return {
                 ...state,
                 lessons: action.actualLessons

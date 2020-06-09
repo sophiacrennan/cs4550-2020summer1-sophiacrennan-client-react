@@ -1,6 +1,7 @@
 import LessonService from "../services/LessonService";
 import LessonTabsComponent from "../components/LessonTabsComponent"
 import {connect} from "react-redux";
+import ModuleService from "../services/ModuleService";
 
 const stateToPropertyMapper = (state) => ({
     lessons: state.LessonReducer.lessons
@@ -11,13 +12,13 @@ const dispatchToPropertyMapper = (dispatch) => ({
         LessonService.createLesson(moduleId, newLesson)
             .then(actualLesson => dispatch({
                 type: 'CREATE_LESSON',
-                newLesson
+                newLesson: actualLesson
             }))
     },
     findLessonsForModule: (moduleId) => {
-        LessonService.findLessonsForModule(moduleId)
+        LessonService.findLessonForModule(moduleId)
             .then(actualLessons => dispatch({
-                type: "FIND_LESSONS_FOR_MODULE",
+                type: "FIND_LESSON_FOR_MODULE",
                 actualLessons
             }))
     },

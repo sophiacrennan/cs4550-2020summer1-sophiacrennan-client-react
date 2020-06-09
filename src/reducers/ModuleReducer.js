@@ -15,7 +15,7 @@ const moduleReducer = (state=initialState, event) => {
                         event.updatedModule : module)
             }
             break;
-        case "FIND_MODULES_FOR_COURSE":
+        case "FIND_MODULE_FOR_COURSE":
             return {
                 ...state,
                 modules: event.modules
@@ -27,7 +27,7 @@ const moduleReducer = (state=initialState, event) => {
                 modules: event.modules
             }
             break;
-        case "ADD_MODULE":
+        case "CREATE_MODULE":
             return {
                 modules: [
                     ...state.modules,
