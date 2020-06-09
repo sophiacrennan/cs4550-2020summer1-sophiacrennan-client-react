@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default class CourseRowComponent extends React.Component{
 
     state = {
+        clicked: {},
         editing: false,
         course: this.props.course
     }
@@ -17,15 +18,13 @@ export default class CourseRowComponent extends React.Component{
         CourseService.updateCourse(
             this.state.course._id,
             this.state.course)
-            .then(status => this.setEditing(false))
+            .then(status => {this.setEditing(false); this.setState({clicked:{}})})
 
     updateCourseTitle = (newTitle) =>
         this.setState(prevState => ({
             course: {
                 ...prevState.course,
                 title: newTitle,
-                // owner: prevState.course.owner,
-                // modified: prevState.course.modified
             }
         }))
 
@@ -33,7 +32,8 @@ export default class CourseRowComponent extends React.Component{
     render() {
         return (
 
-            <tr className={this.state.editing ? 'table-primary' : ''}>
+            <tr className={this.state.clicked._id === this.state.course._id ? 'table-primary' : ''}
+            onClick={() => this.setState({clicked: this.state.course})}>
                 <td>
                     {
                     !this.state.editing &&
@@ -41,10 +41,6 @@ export default class CourseRowComponent extends React.Component{
                             <FontAwesomeIcon icon={faFileAlt}></FontAwesomeIcon>
                             <span className="link"> {this.state.course.title} </span>
                         </Link>
-                    // <Link to={`/editor/`}>
-                    //     <FontAwesomeIcon icon={faFileAlt}></FontAwesomeIcon>
-                    //     <span className="link"> {this.state.course.title} </span>
-                    // </Link>
                     }
 
                     {this.state.editing &&
@@ -68,7 +64,8 @@ export default class CourseRowComponent extends React.Component{
                     <span>
                         <button
                             className="btn btn-primary"
-                            onClick={() => this.setEditing(true)}>
+                            onClick={() => {this.setEditing(true);
+                            this.setState({clicked:this.state.course})}}>
                             <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
                         </button>
                         <button
