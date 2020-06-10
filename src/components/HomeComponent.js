@@ -21,10 +21,7 @@ const HomeComponent = () =>
             <Link className="list-group-item" to='/table/courses'>
                 Course List
             </Link>
-
-            <Link className="list-group-item" to='/editor'>
-                Course Editor
-            </Link>
+            
         </div>
     </div>
 
