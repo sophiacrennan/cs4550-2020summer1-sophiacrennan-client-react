@@ -1,5 +1,4 @@
 import TopicService from "../services/TopicService";
-import TopComponent from "../components/LessonTabsComponent"
 import {connect} from "react-redux";
 import TopicPillsComponent from "../components/TopicPillsComponent";
 
