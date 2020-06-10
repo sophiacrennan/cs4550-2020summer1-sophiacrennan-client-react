@@ -29,7 +29,7 @@ class LessonTabsComponent extends React.Component {
                 <nav className="navbar navbar-expand-sm navbar-dark justify-content-between fixed-top nav-bg">
                     <div className="navbar-nav float-left">
                         <div className="float-left">
-                            <Link to='/courses'>
+                            <Link to={`/table/courses`}>
                                 <FontAwesomeIcon className="nav-item back-button" icon={faUndo}></FontAwesomeIcon>
                             </Link>
                             <span>         </span>

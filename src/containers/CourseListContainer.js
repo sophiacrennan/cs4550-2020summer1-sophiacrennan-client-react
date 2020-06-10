@@ -41,7 +41,7 @@ export default class CourseListContainer extends React.Component {
     render() {
         return (
 
-            <div class="container">
+            <div className="container">
 
                 <CourseListNavBarComponent courses={this.state.courses}/>
 

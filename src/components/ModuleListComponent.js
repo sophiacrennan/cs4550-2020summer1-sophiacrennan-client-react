@@ -21,7 +21,7 @@ class ModuleListComponent extends React.Component {
                     {
 
                         this.props.modules.map(module =>
-                            <div key={module._id}>
+                            <div className={module._id}>
                                 {
                                     this.state.editingModule._id !== module._id &&
                                     <span>
