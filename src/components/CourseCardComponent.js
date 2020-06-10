@@ -43,7 +43,7 @@ export default class CourseCardComponent extends React.Component {
                                 value={this.state.course.title}/>
                             } {
                             !this.state.editing &&
-                            <Link to={`/editor/${this.state.course._id}`}>
+                            <Link to={`/editor/${this.state.course.title}/${this.state.course._id}`}>
                                 <span className="link"> {this.state.course.title} </span>
                             </Link>
                         } </h5>

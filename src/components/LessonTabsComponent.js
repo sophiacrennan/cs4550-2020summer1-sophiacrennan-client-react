@@ -2,13 +2,13 @@ import React from "react";
 import {faUndo, faPlus, faTimes, faCheck, faPencilAlt} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Link} from "react-router-dom";
-
 class LessonTabsComponent extends React.Component {
 
     state = {
         newLessonTitle: 'New Lesson',
         editingLesson: {},
         selectedLesson: {},
+        courseTitle: this.props.params.courseTitle
     }
 
     componentDidMount() {
@@ -34,7 +34,7 @@ class LessonTabsComponent extends React.Component {
                             </Link>
                             <span>         </span>
                             <a className="navbar-brand wbdv-course-title" href="#">
-                                {this.props.params.courseId}
+                                {this.state.courseTitle}
                             </a>
                         </div>
                     </div>

@@ -40,7 +40,7 @@ export default class CourseRowComponent extends React.Component {
                 <td>
                     {
                         !this.state.editing &&
-                        <Link to={`/editor/${this.state.course._id}`}>
+                        <Link to={`/editor/${this.state.course.title}/${this.state.course._id}`}>
                             <FontAwesomeIcon icon={faFileAlt}></FontAwesomeIcon>
                             <span className="link"> {this.state.course.title} </span>
                         </Link>
