@@ -40,7 +40,7 @@ class TopicPillsComponent extends React.Component {
                                                 onClick={() => this.setState({selectedTopic: topic})}>
                                                     {topic.title}
                                             </Link>
-                                             <button onClick={() => this.setState({editingTopic: topic})}
+                                             <button onClick={() => this.setState({editingTopic: topic, selectedTopic: topic})}
                                                      className="btn btn-pill nav-link wbdv-topic-delete-btn float-right">
                                                 <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
                                             </button>
@@ -50,7 +50,8 @@ class TopicPillsComponent extends React.Component {
                                 {
                                     this.state.editingTopic._id === topic._id &&
                                     <span>
-                                        <button className="nav-link btn btn-pill active">
+                                         <button className={this.state.selectedTopic._id === topic._id ?
+                                             'nav-link btn btn-pill active' : 'nav-link btn btn-pill'}>
                                                      <input className="form-control"
                                                             onChange={(e) => {
                                                                 const newTitle = e.target.value

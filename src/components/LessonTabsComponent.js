@@ -62,7 +62,7 @@ class LessonTabsComponent extends React.Component {
                                                              onClick={() => this.setState({selectedLesson: lesson})}>
                                                             {lesson.title}
                                                          </Link>
-                                                     <button onClick={() => this.setState({editingLesson: lesson})}
+                                                     <button onClick={() => this.setState({editingLesson: lesson, selectedLesson: lesson})}
                                                              className="btn nav-link wbdv-lesson-delete-btn float-right">
                                                         <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
                                                     </button>
@@ -72,7 +72,8 @@ class LessonTabsComponent extends React.Component {
                                             {
                                                 this.state.editingLesson._id === lesson._id &&
                                                 <span>
-                                                    <button className="btn nav-link wbdv-lesson-tabs active">
+                                                   <button className={this.state.selectedLesson._id === lesson._id ?
+                                                       "btn nav-link wbdv-lesson-tabs active" : "btn nav-link wbdv-lesson-tabs"}>
                                                      <input className="form-control"
                                                             onChange={(e) => {
                                                                 const newTitle = e.target.value
