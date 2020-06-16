@@ -6,13 +6,15 @@ import * as serviceWorker from './serviceWorker';
 import ModuleReducer from './reducers/ModuleReducer';
 import LessonReducer from "./reducers/LessonReducer";
 import TopicReducer from "./reducers/TopicReducer";
+import WidgetReducer from "./reducers/WidgetReducer";
 import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
 import $ from'jquery';
 import Popper from'popper.js';
 
+
 const reducers = combineReducers({
-    ModuleReducer, LessonReducer, TopicReducer
+    ModuleReducer, LessonReducer, TopicReducer, WidgetReducer
 })
 const store = createStore(reducers)
 
