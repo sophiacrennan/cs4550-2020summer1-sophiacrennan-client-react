@@ -11,16 +11,19 @@ const TopicReducer = (state = initialState, action) => {
                 topics: state.topics.filter(
                     topic => topic._id !== action.topicId)
             }
+            break;
         case "FIND_TOPIC_FOR_LESSON":
             return {
                 ...state,
                 topics: action.actualTopics
             }
+            break;
         case "CREATE_TOPIC":
             return {
                 ...state,
                 topics: [...state.topics, action.newTopic]
             }
+            break;
         case "UPDATE_TOPIC":
             return {
                 ...state,
