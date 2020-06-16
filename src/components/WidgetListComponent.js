@@ -2,14 +2,13 @@ import React from "react";
 import HeadingWidgetComponent from "./widgets/HeadingWidgetComponent";
 import ParagraphWidgetComponent from "./widgets/ParagraphWidgetComponent";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCheck, faPencilAlt, faPlus, faTimes, faArrowUp, faArrowDown} from "@fortawesome/free-solid-svg-icons";
+import {faPlus} from "@fortawesome/free-solid-svg-icons";
 
 class WidgetListComponent extends React.Component {
 
     state = {
-        newWidgetTitle: 'New Topic',
-        editingWidget: {},
-        selectedWidget: {},
+        preview: false,
+        widgets: this.props.widgets,
     }
 
     componentDidMount() {
@@ -23,17 +22,11 @@ class WidgetListComponent extends React.Component {
     }
 
     updateRealWidget = (widget) => {
-        this.setState(
-            {
-                editingWidget: {}
-            }
-        )
-        this.props.updateWidget(widget.id, widget)
+         this.props.updateWidget(widget.id, widget)
     }
 
     changeOrder = (index, changedWidget, direction) => {
             this.props.widgets.map(widget => {
-                console.log(changedWidget.id)
                 if(widget.id === changedWidget.id) {
                     {this.props.updateWidget(widget.id, {...widget, widgetOrder: index})}
                 }
@@ -42,51 +35,61 @@ class WidgetListComponent extends React.Component {
                         {
                             this.props.updateWidget(widget.id, {...widget, widgetOrder: widget.widgetOrder + 1})
                         }
-                    } else {
+                    } else if(direction === "down") {
                         {this.props.updateWidget(widget.id, {...widget, widgetOrder: widget.widgetOrder - 1})}
                     }
                 }
             })
-       // this.props.findWidgetsForTopic(this.props.params.topicId)
     }
 
 
     render() {
         return(
             <div>
-                <h2>Widget List</h2>
+                <br/>
+                {this.props.widgets.length > 0 &&
+                <button  className="btn btn-pill float-right"
+                         onClick={() =>
+                             this.setState({preview: !this.state.preview})
+                         }>
+                    {
+                        this.state.preview !== false &&
+                        <span>Edit</span>
+                    }
+                    {
+                        this.state.preview === false &&
+                        <span>Preview</span>
+                    }
+                </button>
+                }
+
+            <br/>
                 <div>
                     {
                         this.props.widgets.sort((a,b) => (a.widgetOrder - b.widgetOrder)).map(widget =>
                             <div key={widget.id} className="heading-widget">
                                 {
-                                    this.state.editingWidget.id !== widget.id &&
-                                    <button onClick={() =>
-                                        this.setState({editingWidget: widget, selectedWidget: widget})
-                                    }
-                                            className="btn btn-pill wbdv-widget-edit-btn float-right">
-                                        <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
-                                    </button>
-                                }
-                                {
                                     widget.type === 'HEADING' &&
                                     <HeadingWidgetComponent widget={widget}
-                                                            editing={this.state.editingWidget}
+                                                            preview={this.state.preview}
                                                             updateRealWidget={this.updateRealWidget}
                                                             deleteRealWidget={this.props.deleteWidget}
-                                                            changeOrder={this.changeOrder}/>
+                                                            changeOrder={this.changeOrder}
+                                                            length={this.props.widgets.length}/>
                                 }
                                 {
                                     widget.type === 'PARAGRAPH' &&
                                     <ParagraphWidgetComponent widget={widget}
-                                                              editing={this.state.editingWidget}
+                                                              preview={this.state.preview}
                                                               updateRealWidget={this.updateRealWidget}
                                                               deleteRealWidget={this.props.deleteWidget}
-                                                              changeOrder={this.changeOrder}/>
+                                                              changeOrder={this.changeOrder}
+                                                              length={this.props.widgets.length}/>
                                 }
                             </div>)
                     }
                 </div>
+                <br/>
                     <button className="btn wbdv-widget-add-btn btn-pill float-right"
                             onClick={() =>
                             {this.props.createWidget(
@@ -103,7 +106,6 @@ class WidgetListComponent extends React.Component {
         )
     }
 }
-
 
 export default WidgetListComponent
 

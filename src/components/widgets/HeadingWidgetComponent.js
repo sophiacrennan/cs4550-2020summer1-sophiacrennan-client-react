@@ -9,17 +9,17 @@ export default class HeadingWidgetComponent extends React.Component {
     render() {
         return(
                 <div>
-                    {/*{this.props.widget.widgetOrder}*/}
                     {
-                        this.props.editing.id === this.props.widget.id &&
+                        this.props.preview === false &&
                             <div>
                                 <div>
-                                    <h2 className="float-left">Heading widget</h2>
+                                    <h3 className="float-left">Heading widget</h3>
                                     <span className="float-right"> <WidgetButtonComponent widget={this.state.widget}
-                                                                                          editingWidget={this.props.editing}
+                                                                                          preview={this.props.preview}
                                                                                           updateRealWidget={this.props.updateRealWidget}
                                                                                           deleteRealWidget={this.props.deleteRealWidget}
                                                                                           changeOrder={this.props.changeOrder}
+                                                                                          length={this.props.length}
                                     /></span>
                                 </div>
 
@@ -69,10 +69,11 @@ export default class HeadingWidgetComponent extends React.Component {
                                     )}
                                     value={this.state.widget.name}
                                 />
-                                <h3>Preview</h3>
+                                <h4>Preview</h4>
                             </div>
                     }
                     {
+
                         this.state.widget.size === 1 &&
                         <h1>{this.state.widget.text}</h1>
 
