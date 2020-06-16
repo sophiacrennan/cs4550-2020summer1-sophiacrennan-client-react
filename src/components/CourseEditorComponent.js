@@ -1,8 +1,8 @@
 import React from "react";
-import WidgetListComponent from "./WidgetListComponent";
 import ModuleListContainer from "../containers/ModuleListContainer";
 import LessonTabContainer from "../containers/LessonTabContainer";
 import TopicPillContainer from "../containers/TopicPillContainer";
+import WidgetListContainer from "../containers/WidgetListContainer";
 
 const CourseEditorComponent = ({match}) =>
     <div>
@@ -13,7 +13,11 @@ const CourseEditorComponent = ({match}) =>
             </div>
             <div className="col-8">
                 <TopicPillContainer {...match}/>
-                <WidgetListComponent/>
+                {/*{*/}
+                {/*    match.params.topicId &&*/}
+                    <WidgetListContainer {...match}/>
+                {/*}*/}
+
             </div>
         </div>
     </div>
