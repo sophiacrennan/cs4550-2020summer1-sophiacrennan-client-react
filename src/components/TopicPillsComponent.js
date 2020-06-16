@@ -41,7 +41,7 @@ class TopicPillsComponent extends React.Component {
                                                     {topic.title}
                                             </Link>
                                              <button onClick={() => this.setState({editingTopic: topic, selectedTopic: topic})}
-                                                     className="btn btn-pill nav-link wbdv-topic-delete-btn float-right">
+                                                     className="btn btn-pill nav-link wbdv-topic-edit-btn float-right">
                                                 <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
                                             </button>
                                         </button>
