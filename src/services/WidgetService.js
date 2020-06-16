@@ -1,19 +1,19 @@
 const findAllWidgets = () =>
-    fetch(`http://localhost:8080/api/widgets/`)
+    fetch(`https://cs4550-scrennan-java-a5.herokuapp.com/api/widgets/`)
         .then(response => response.json())
 
 const findWidgetsForTopic = (tid) =>
-    fetch(`http://localhost:8080/api/topics/${tid}/widgets`)
+    fetch(`https://cs4550-scrennan-java-a5.herokuapp.com/api/topics/${tid}/widgets`)
         .then(response => response.json())
 
 const deleteWidget = (wid) =>
-    fetch(`http://localhost:8080/api/widgets/${wid}`, {
+    fetch(`https://cs4550-scrennan-java-a5.herokuapp.com/api/widgets/${wid}`, {
     method: 'DELETE'
     })
         .then(response => response.json())
 
 const createWidget = (tid, widget) =>
-    fetch(`http://localhost:8080/api/topics/${tid}/widgets`, {
+    fetch(`https://cs4550-scrennan-java-a5.herokuapp.com/api/topics/${tid}/widgets`, {
         method: 'POST',
         body: JSON.stringify(widget),
         headers: {
@@ -23,7 +23,7 @@ const createWidget = (tid, widget) =>
         .then(response => response.json())
 
 const updateWidget = (wid, widget) =>
-    fetch(`http://localhost:8080/api/widgets/${wid}`, {
+    fetch(`https://cs4550-scrennan-java-a5.herokuapp.com/api/widgets/${wid}`, {
         method: 'PUT',
         body: JSON.stringify(widget),
         headers: {
